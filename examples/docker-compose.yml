@@ -1,6 +1,6 @@
 services: 
   icecast:
-    image: moul/icecast:latest
+    image: kaiyga/icecast2
     volumes:
     - logs:/var/log/icecast2
     - /etc/localtime:/etc/localtime:ro 

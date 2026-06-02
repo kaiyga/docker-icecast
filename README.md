@@ -2,14 +2,14 @@
 
 Icecast2 Dockerfile
 
-[![](http://dockeri.co/image/moul/icecast)](https://index.docker.io/u/moul/icecast/)
+[![](http://dockeri.co/image/kaiyga/icecast2)](https://index.docker.io/u/moul/icecast/)
 
 ## Run
 
 Run with default password, export port 8000
 
 ```bash
-docker run -p 8000:8000 moul/icecast
+docker run -p 8000:8000 kaiyga/icecast2
 $BROWSER localhost:8000
 ```
 
@@ -22,31 +22,31 @@ docker run -p 8000:8000 \
     -e ICECAST_PASSWORD=cccc \ 
     -e ICECAST_RELAY_PASSWORD=dddd \
     -e ICECAST_STREAM_PASSWORD=stream_pass \ 
-    -e ICECAST_HOSTNAME=noise.example.com moul/icecast
+    -e ICECAST_HOSTNAME=noise.example.com kaiyga/icecast2
 
-docker run -p 8000:8000 --env-file config.env moul/icecast
+docker run -p 8000:8000 --env-file config.env kaiyga/icecast2
 
 ```
 
 Run with custom configuration
 
 ```bash
-docker run -p 8000:8000 -v /local/path/to/icecast/config:/etc/icecast2 moul/icecast
-docker run -p 8000:8000 -v icecast.yaml:/etc/icecast2/values.yaml moul/icecast
+docker run -p 8000:8000 -v /local/path/to/icecast/config:/etc/icecast2 kaiyga/icecast2
+docker run -p 8000:8000 -v icecast.yaml:/etc/icecast2/values.yaml kaiyga/icecast2
 ```
 
 Extends Dockerfile
 
 ```Dockerfile
-FROM moul/icecast
-ADD ./icecast.xml /etc/icecast2
+FROM kaiyga/icecast2
+ADD ./icecast.yaml /etc/icecast2/values.yaml
 ```
 
 Docker-compose
 
 ```yaml
 icecast:
-  image: moul/icecast
+  image: kaiyga/icecast2
   volumes:
   - logs:/var/log/icecast2
   - /etc/localtime:/etc/localtime:ro
@@ -57,7 +57,6 @@ icecast:
   - ICECAST_RELAY_PASSWORD=ddd
   - ICECAST_HOSTNAME=noise.example.com
   - ICECAST_STREAM_PASSWORD=stream_pass
-
   ports:
   - 8000:8000
 ```

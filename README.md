@@ -1,8 +1,6 @@
 # Icecast in Docker 
 
-Icecast2 Dockerfile
-
-[![](http://dockeri.co/image/kaiyga/icecast2)](https://index.docker.io/u/moul/icecast/)
+Icecast2 with yaml configuration (WhT)
 
 ## Run
 

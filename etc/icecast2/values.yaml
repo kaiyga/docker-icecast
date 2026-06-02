@@ -1,0 +1,44 @@
+hostname: $ICECAST_HOSTNAME
+fileserve: 1
+
+limits:
+  clients: 1000
+  sources: 42
+  threadpool: 5
+  queue_size: 524288
+  client_timeout: 30
+  header_timeout: 15
+  source_timeout: 10
+  burst_on_connect: 1
+  burst_size: 65535
+
+authentication:
+  source_password: $ICECAST_SOURCE_PASSWORD
+  relay_password: $ICECAST_RELAY_PASSWORD
+  admin_user: $ICECAST_ADMIN_USER
+  admin_password: $ICECAST_ADMIN_PASSWORD
+
+listen_sockets:
+  - port: 8000
+
+mounts:
+  - name: "/stream"
+    password: $ICECAST_STREAM_PASSWORD
+    max_listeners: 1000
+    hidden: 0
+    no_yp: 1
+
+paths:
+  basedir: "/usr/share/icecast2"
+  logdir: "/var/log/icecast2"
+  webroot: "/usr/share/icecast2/web"
+  adminroot: "/usr/share/icecast2/admin"
+
+logging:
+  accesslog: "access.log"
+  errorlog: "error.log"
+  loglevel: 3
+  logsize: 10000
+
+security:
+  chroot: 0

@@ -1,0 +1,59 @@
+hostname: "localhost"
+fileserve: 1
+
+limits:
+  clients: 1000
+  sources: 42
+  threadpool: 5
+  queue_size: 524288
+  client_timeout: 30
+  header_timeout: 15
+  source_timeout: 10
+  burst_on_connect: 1
+  burst_size: 65535
+
+authentication:
+  source_password: "hackme"
+  relay_password: "hackme"
+  admin_user: "admin"
+  admin_password: "hackme"
+
+listen_sockets:
+  - port: 8000
+    # bind_address: "127.0.0.1" 
+
+mounts:
+  - name: "/radio-high.mp3"
+    username: "source"
+    password: "supersecretpassword"
+    max_listeners: 500
+    burst_size: 65536
+    fallback_mount: "/radio-low.mp3"
+    fallback_override: 1
+    intro: "/var/music/intro.mp3"
+    hidden: 0
+    no_yp: 1
+
+  - name: "/radio-low.mp3"
+    password: "anotherpassword"
+    max_listeners: 1000
+    hidden: 0
+    no_yp: 1
+
+paths:
+  basedir: "/usr/share/icecast2"
+  logdir: "/var/log/icecast2"
+  webroot: "/usr/share/icecast2/web"
+  adminroot: "/usr/share/icecast2/admin"
+
+logging:
+  accesslog: "access.log"
+  errorlog: "error.log"
+  loglevel: 3       # 4 Debug, 3 Info, 2 Warn, 1 Error
+  logsize: 10000    
+
+security:
+  chroot: 0
+  # changeowner:
+  #   user: "nobody"
+  #   group: "nogroup"

@@ -63,7 +63,7 @@ icecast:
 
 ## How it works
 
-The container takes a base configurations file [`/etc/icecast2/values.yaml`](./etc/icecast2/values.yaml) and renders it into the final `icecast.xml` using a Go [`icecast.xml.tpl`](./etc/icecast2/icecast.xml.tpl) template.
+The container takes a base configurations file [`/tmpl/values.yaml`](./tmpl/values.yaml) and renders it into the final `icecast.xml` using a Go [`icecast.xml.tpl`](./tmpl/icecast.xml.tpl) template.
 
 To dynamic support environment variables, the `values.yaml` is pre-processed with [`envsubst`](https://man7.org/linux/man-pages/man1/envsubst.1.html) at container startup. This allows you to inject credentials and ports on the fly. For advanced use cases, you can easily override the default `values.yaml` using Docker volumes to `/etc/icecast2/values.yaml`.
 

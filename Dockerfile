@@ -19,13 +19,18 @@ RUN apt-get -qq -y update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# 2. Создаем структуру папок ЗАРАНЕЕ
+RUN mkdir -p /app /var/log/icecast2 /etc/icecast2
+
 COPY ./start.sh /start.sh
-COPY ./etc /etc
+COPY ./etc/icecast2/web /usr/share/icecast2/web
+COPY ./etc/icecast2/admin /usr/share/icecast2/admin
+COPY ./tmpl /tmpl
 
 RUN chmod +x /start.sh && \
-    chown -R icecast2 /etc/icecast2 /var/log/icecast2
+    chown -R icecast2: /etc/icecast2 /var/log/icecast2 /usr/share/icecast2 /tmpl
 
 EXPOSE 8000
-VOLUME ["/config", "/var/log/icecast2", "/etc/icecast2"]
+VOLUME ["/var/log/icecast2"]
 
 CMD ["/start.sh"]

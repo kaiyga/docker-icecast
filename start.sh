@@ -2,10 +2,9 @@
 set -e 
 
 # Generate values.yaml with creds from env
-envsubst < /etc/icecast2/values.yaml > /etc/icecast2/values.filled.yaml
-
+envsubst < /tmpl/values.yaml > /tmpl/values.filled.yaml
 # Template icecast.xml
-tpl -d yaml -f /etc/icecast2/icecast.xml.tpl < /etc/icecast2/values.filled.yaml > /etc/icecast2/icecast.xml
+tpl -d yaml -f /tmpl/icecast.xml.tpl < /tmpl/values.filled.yaml > /etc/icecast2/icecast.xml
 
 rm -f /etc/icecast2/values.filled.yaml
 

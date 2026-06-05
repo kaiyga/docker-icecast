@@ -12,7 +12,6 @@ limits:
   burst_on_connect: 1
   burst_size: 65535
 
-pidfile: /var/run/icecast2/icecast2.pid
 
 authentication:
   source_password: $ICECAST_SOURCE_PASSWORD
@@ -31,10 +30,11 @@ mounts:
     no_yp: 1
 
 paths:
-  basedir: "/usr/share/icecast2"
+  basedir: "/etc/icecast2"
   logdir: "/var/log/icecast2"
-  webroot: "/usr/share/icecast2/web"
-  adminroot: "/usr/share/icecast2/admin"
+  webroot: "/etc/icecast2/web"
+  adminroot: "/etc/icecast2/admin"
+  pidfile: /var/run/icecast2/icecast2.pid
 
 logging:
   accesslog: "access.log"

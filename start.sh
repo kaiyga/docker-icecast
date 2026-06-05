@@ -8,6 +8,6 @@ tpl -d yaml -f /tmpl/icecast.xml.tpl < /tmpl/values.filled.yaml > /etc/icecast2/
 
 rm -f /etc/icecast2/values.filled.yaml
 
-chown -R icecast2 /etc/icecast2/icecast.xml /var/log/icecast2
+chown -R icecast2 /etc/icecast2/icecast.xml /etc/icecast2/ /var/log/icecast2 /var/run/icecast2
 echo "Starting Icecast2..."
 exec sudo -Eu icecast2 icecast2 -n -c /etc/icecast2/icecast.xml

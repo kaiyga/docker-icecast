@@ -10,7 +10,6 @@
         <burst-on-connect>{{ .limits.burst_on_connect }}</burst-on-connect>
         <burst-size>{{ .limits.burst_size }}</burst-size>
     </limits>
-    <pidfile>{{ .pidfile }}</pidfile>
     <authentication>
         <source-password>{{ .authentication.source_password }}</source-password>
         <relay-password>{{ .authentication.relay_password }}</relay-password>
@@ -50,6 +49,7 @@
         <webroot>{{ .paths.webroot }}</webroot>
         <adminroot>{{ .paths.adminroot }}</adminroot>
         <alias source="/" dest="/status.xsl"/>
+        <pidfile>{{ .paths.pidfile }}</pidfile>
     </paths>
 
     <logging>

@@ -12,6 +12,8 @@ limits:
   burst_on_connect: 1
   burst_size: 65535
 
+pidfile: /var/run/icecast2/icecast2.pid
+
 authentication:
   source_password: $ICECAST_SOURCE_PASSWORD
   relay_password: $ICECAST_RELAY_PASSWORD

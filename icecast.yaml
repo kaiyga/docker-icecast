@@ -18,6 +18,8 @@ authentication:
   admin_user: "admin"
   admin_password: "hackme"
 
+pidfile: /var/run/icecast2/icecast2.pid
+
 listen_sockets:
   - port: 8000
     # bind_address: "127.0.0.1" 
